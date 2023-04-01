@@ -4,6 +4,7 @@ const simpleGit = require("simple-git")
 
 // data path
 const date = moment().format()
+const reqDate = moment().subtract(1,'d');
 const filePath = "./data.json"
 const data = {date:moment().format()}
 
@@ -14,5 +15,5 @@ console.log(moment().format());
 
 
 // git commands
-simpleGit().add([filePath])
-simpleGit().commit(date,{"--date":date})
+console.log(reqDate);
+simpleGit().add([filePath]).commit("new msg",{'--date':reqDate}).push();
